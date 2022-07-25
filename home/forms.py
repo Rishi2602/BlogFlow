@@ -9,9 +9,9 @@ class DetailForm(forms.ModelForm):
 
     class Meta:
         model = Detail
-        fields = ('title', 'image')
+        fields = ('title','description','completion')
      
 class CreateUserForm(UserCreationForm):
 	class Meta:
 		model = User
-		fields = ['username','password1', 'password2']
+		fields = ['username','email','password1', 'password2']

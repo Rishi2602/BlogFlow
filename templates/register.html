@@ -1,59 +1,37 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>CRUD Task</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href=" {% static "css/style2.css" %} ">
 </head>
-<style>
-    *{
-    
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    
-    }
-    body{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background: url(https://source.unsplash.com/random/900x700/?office,work) no-repeat center center/cover;
-    }  
-    .form-box
-    {
-        background-color: #000000d0;
-        color: white;
-        padding: 10px 5px;
-        line-height:1.5;
-        border-radius: 30px;
-        width:100%;
-        max-width: 400px;
-        text-align:center;
-    }
-    
-</style>
 <body>
     <div class="form-box">
         <h2 style="text-decoration:underline;">Register</h2>
         <br>
         <form method="post" action="">
             {% csrf_token %}
-           {{form.username.label}}
+           {{form.username.label}}:
            {{form.username}}
            <br>
-           {{form.password1.label}}
+           {{form.email.label}}:
+           {{form.email}}
+           <br>
+           {{form.password1.label}}:
            {{form.password1}}
            <br>
-           {{form.password2.label}}
+           {{form.password2.label}}:
            {{form.password2}}
            <br>
-           <br>
-     <button type="submit">Submit</button>
+     <button type="submit" class="btn btn-md bg-primary mx-auto d-block px-3 py-1">Submit</button>
      {{form.errors}}
         </form>
+        <br>
         <p>Already have an account?<a href="{% url 'login_page'%}">  Login</a></p>
     </div>
     

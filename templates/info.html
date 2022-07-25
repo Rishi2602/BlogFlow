@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body%}
+    <div>
+    <h4 class="header text-center alert alert-success" style="font-family: 'Montserrat', sans-serif; margin:40px 20px; padding:20px 0px;">Incomplete Todos</h4>
+      {% if details %}
+      <table class="table table-hover" style="font-family: Arial, Helvetica, sans-serif">
+        <thead>
+          <tr>
+            <th scope="col">Date/Time</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Updated Date/Time</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+      <tbody>
+        {%for detail in details %}
+                <tr>
+                  <th scope="row">
+                    {{detail.date}}
+                  </th>
+                  <td>{{user_details.username}}</td>
+                  <td>{{user_details.email}}</td>
+                  <td>{{detail.title}}</td>
+                  <td style="overflow:auto;">{{detail.description}}</td>
+                  <td>{{detail.updated_date}}</td>
+                  <td>
+                    <a href="{% url 'update' detail.id %}" class="btn btn-sm bg-warning" style="color:white">Update</a>
+                    <form action="{% url 'delete' detail.id %}" method="post" class="d-inline">{% csrf_token %}
+                    <button class="btn btn-sm bg-danger"  style="color:white" type="submit">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+        {% endfor %}
+      </tbody>
+      {% else %}
+      <h4 class="text-center hsecondary" >No records Found</h4>
+      {% endif %}
+    </table>
+</div>
+</div>
+  {% endblock body%}
+
+
+  {% block css%}
+  *{
+  margin:0px;
+  padding:0px;
+  }
+  p{
+  display:flex;
+  flex-direction:column;
+  padding-top:30px;
+  margin: 0px 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  }
+  .btn2{
+  font-size:1.2rem;
+  color:white;
+  }
+  @media(max-width:768px){
+    .whole .hprimary{
+      font-size:1.5rem;
+    }}
+    @media(max-width:460px){
+      .whole .hprimary{
+        font-size:1.2rem;
+        overflow:auto;
+      }
+      .header{
+        font-size:1.15rem;
+      }
+    }
+
+    .hprimary{
+      background-color:rgb(31 88 88);
+      color: white;
+      font-size: 1.7rem;
+      font-family: 'Montserrat', sans-serif;
+      padding:15px 0px;
+    }
+    .hsecondary{
+      margin:100px 0px;
+    }
+
+  {% endblock css%}

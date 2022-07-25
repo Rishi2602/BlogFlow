@@ -1,0 +1,30 @@
+*{
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url(https://source.unsplash.com/random/900x700/?office,work) no-repeat center center/cover;
+}  
+.form-box
+{
+    background-color: #000000d0;
+    color: white;
+    padding: 10px 5px;
+    line-height:1.5;
+    border-radius: 30px;
+    width:100%;
+    max-width: 400px;
+    text-align:center;
+} 
+form input{
+padding:2px;
+margin:2px;
+text-align:center;
+}  
