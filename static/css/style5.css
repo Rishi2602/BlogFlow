@@ -1,0 +1,56 @@
+
+*{
+  margin:0px;
+  padding:0px;
+  }
+body{
+  height: 100vh;
+  background:url(bg2.jpg)no-repeat center center/cover;
+ }
+.navbox{
+  background-color:rgb(31 88 88);
+}
+.navbox .hprimary{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.0rem;
+  background-color:rgb(31 88 88);
+}
+@media(max-width:300px){
+    .navbox .hprimary{
+      font-size: 1.3rem;
+    }
+    .navbox .dots{
+      padding: 1px 1px;
+    } 
+}
+.navbox .navbar{
+  padding: 0px 0px;
+}
+  form label{
+    font-weight:bold;
+  }
+  @media(max-width:768px){
+    .whole .hprimary{
+      font-size:1.5rem;
+    }}
+    @media(max-width:460px){
+      .whole .hprimary{
+        font-size:1.2rem;
+        overflow:auto;
+      }
+      .header{
+        font-size:1.15rem;
+      }
+    }
+
+    .hprimary{
+      background-color:rgb(31 88 88);
+      color: white;
+      font-size: 1.7rem;
+      font-family: 'Montserrat', sans-serif;
+      padding:15px 0px;
+    }
+  .btn2{
+  font-size:1.2rem;
+  color:white;
+  }

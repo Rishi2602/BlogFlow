@@ -1,16 +1,52 @@
-{% extends 'base.html' %}
 {% load static %}
-
-{% block body%}
-    <div>
-    <h4 class="header text-center alert alert-success" style="font-family: 'Montserrat', sans-serif; margin:40px 20px; padding:20px 0px;">Complete Todos</h4>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>CRUD Task</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Ubuntu&display=swap" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static "css/style4.css" %}">
+  </head>
+<body>
+    <div class="whole">
+    <div class="container-fluid navbox">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+           <a class="navbar-brand hprimary" href="" style="color:whitesmoke;">CRUD App</a>
+            <button class="navbar-toggler dots" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}" style="color: whitesmoke; font-family: 'Montserrat', sans-serif; font-size: 1.2rem;">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'colist' %}" style="color: whitesmoke; font-family: 'Montserrat', sans-serif; font-size: 1.2rem;">Completed Todos</a>
+            </li>
+               <li class="nav-item">
+                   <a class="nav-link" href="{% url 'add' %}" style="color: whitesmoke; font-family: 'Montserrat', sans-serif; font-size: 1.2rem;">Add Todo</a>
+               </li>
+               <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}" style="color: whitesmoke; font-family: 'Montserrat', sans-serif; font-size: 1.2rem;">Logout</a>
+            </li>
+           </ul>
+           <form class="form-inline my-2 my-lg-0 p-3">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="{% url 'profile' %}" style="color:yellow;">Profile</a></button>
+          </form>
+        </div>
+       </nav>
+       </div>
+   <div>
+    <h4 class="header text-center" style="font-family: 'Montserrat', sans-serif; margin:40px 0px 20px; padding:20px 0px;text-decoration:underline;">Completed Todos</h4>
     {% if details %}
-    <table class="table table-hover" style="font-family: Arial, Helvetica, sans-serif">
-      <thead>
+    <table class="table table-bordered table-hover" style="font-family: Arial, Helvetica, sans-serif">
+      <thead class="thead-dark">
         <tr>
           <th scope="col">Date/Time</th>
-          <th scope="col">Username</th>
-          <th scope="col">Email</th>
           <th scope="col">Title</th>
           <th scope="col">Description</th>
           <th scope="col">Completed Date/Time</th>
@@ -23,8 +59,6 @@
           <th scope="row">
             {{detail.date}}
           </th>
-          <td>{{user_details.username}}</td>
-          <td>{{user_details.email}}</td>
           <td>{{detail.title}}</td>
           <td style="overflow:auto;">{{detail.description}}</td>
           <td>{{detail.updated_date}}</td>
@@ -43,48 +77,9 @@
     </table>
 </div>
 </div>
-  {% endblock body%}
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>
 
-
-  {% block css%}
-  *{
-  margin:0px;
-  padding:0px;
-  }
-  p{
-  display:flex;
-  flex-direction:column;
-  padding-top:30px;
-  margin: 0px 30px;
-  font-family: Arial, Helvetica, sans-serif;
-  }
-  .btn2{
-  font-size:1.2rem;
-  color:white;
-  }
-  @media(max-width:768px){
-    .whole .hprimary{
-      font-size:1.5rem;
-    }}
-    @media(max-width:460px){
-      .whole .hprimary{
-        font-size:1.2rem;
-        overflow:auto;
-      }
-      .header{
-        font-size:1.15rem;
-      }
-    }
-
-    .hprimary{
-      background-color:rgb(31 88 88);
-      color: white;
-      font-size: 1.7rem;
-      font-family: 'Montserrat', sans-serif;
-      padding:15px 0px;
-    }
-    .hsecondary{
-      margin:100px 0px;
-    }
-
-  {% endblock css%}

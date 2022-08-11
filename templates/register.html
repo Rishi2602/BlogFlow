@@ -12,28 +12,37 @@
 </head>
 <body>
     <div class="form-box">
-        <h2 style="text-decoration:underline;">Register</h2>
+        <h2 class="main-heading">Register Form</h2>
         <br>
-        <form method="post" action="">
+        <div class="form">
+        <form method="post" action="" enctype="multipart/form-data">
             {% csrf_token %}
-           {{form.username.label}}:
-           {{form.username}}
-           <br>
-           {{form.email.label}}:
-           {{form.email}}
-           <br>
-           {{form.password1.label}}:
-           {{form.password1}}
-           <br>
-           {{form.password2.label}}:
-           {{form.password2}}
-           <br>
-     <button type="submit" class="btn btn-md bg-primary mx-auto d-block px-3 py-1">Submit</button>
-     {{form.errors}}
+                <input type="text" name="username1" placeholder="Username" autocomplete="false" required>  
+                <input type="email" name="email"   placeholder="Email-id" required>
+                <input type="number" name="number" placeholder="Phone Number" required>
+                <input type="password" name="pass1" placeholder="Password" required>      
+                <input type="password" name="pass2" placeholder="Confirm Password" required>
+                <input type="file" name="image" required>
+            <button type="submit">Register</button>
         </form>
         <br>
-        <p>Already have an account?<a href="{% url 'login_page'%}">  Login</a></p>
+        <p class="message">Already Registered?<a href="{% url 'login_page'%}"  style="	color: orangered;">Login</a></p>
     </div>
-    
+    </div>  
 </body>
+{% for message in messages %}
+    {% if message.tags == 'success' %}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        var m = "{{ message }}";
+        Swal.fire({
+            position:'center',
+            icon: 'success',
+            text:m,
+            title:'Perfect',
+            timer: 3000
+        })
+    </script>
+    {%endif%}
+{%endfor%}
 </html>
