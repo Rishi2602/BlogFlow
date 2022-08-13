@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD Task</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Ubuntu&display=swap" rel="stylesheet">
@@ -56,8 +56,10 @@
         <input type="checkbox" name="completion" class="form-check-input">
         <label>Completion Status</label>
       </div>
+      <div style="display:flex;justify-content:center;align-items:center;">
       <button type="submit" class="btn btn-primary">Submit</button>
-      <a  href="{% url 'index' %}" style="color:whitesmoke;">Back</a>
+      <a  href="{% url 'index' %}" class=" btn btn3 bg-primary btn-md   my-4 mx-1 px-3 py-1" style="font-size:1.1rem;color:white;max-width:40%;">Back</a>
+      </div>
     </form>
   </div>
 </div>

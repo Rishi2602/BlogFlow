@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD Task</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Ubuntu&display=swap" rel="stylesheet">
@@ -43,6 +43,7 @@
    <div>
     <h4 class="header text-center" style="font-family: 'Montserrat', sans-serif; margin:40px 0px 20px; padding:20px 0px;text-decoration:underline;">Completed Todos</h4>
     {% if details %}
+    <div class="table-responsive">
     <table class="table table-bordered table-hover" style="font-family: Arial, Helvetica, sans-serif">
       <thead class="thead-dark">
         <tr>
@@ -75,6 +76,7 @@
       <h4 class="text-center hsecondary" >No records Found</h4>
       {% endif %}
     </table>
+  </div>
 </div>
 </div>
 </body>

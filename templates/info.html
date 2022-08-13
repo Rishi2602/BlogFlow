@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD Task</title>
     <link rel="stylesheet" href="{% static "css/style4.css" %}">
     <link
@@ -127,7 +127,7 @@
               <th scope="col">Action</th>
             </tr>
           </thead>
-          <tbody style="background-color:#83ca9ab0;">
+          <tbody>
             {%for detail in details %}
             <tr>
               <th scope="row">{{detail.date}}</th>
